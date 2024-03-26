@@ -1,6 +1,5 @@
 (ns clojure-basics.repl
   (:use clojure-basics.handler
-        figwheel-sidecar.repl-api
         ring.server.standalone
         [ring.middleware file-info file]))
 
