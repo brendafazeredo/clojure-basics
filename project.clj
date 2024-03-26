@@ -5,22 +5,22 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.11.1"]
-               [ring-server "0.5.0"]
-               [reagent "1.1.1"]
-               [reagent-utils "0.3.4"]
-               [cljsjs/react "17.0.2-0"]
-               [cljsjs/react-dom "17.0.2-0"]
-               [ring "1.9.5"]
-               [ring/ring-defaults "0.3.3"]
-               [hiccup "1.0.5"]
-               [yogthos/config "1.2.0"]
-               [org.clojure/clojurescript "1.11.54"
-                :scope "provided"]
-               [metosin/reitit "0.5.18"]
-               [pez/clerk "1.0.0"]
-               [venantius/accountant "0.2.5"
-                :exclusions [org.clojure/tools.reader]]
-               [vvvvalvalval/datomock "0.2.2"]]
+                 [ring-server "0.5.0"]
+                 [reagent "1.1.1"]
+                 [reagent-utils "0.3.4"]
+                 [cljsjs/react "17.0.2-0"]
+                 [cljsjs/react-dom "17.0.2-0"]
+                 [ring "1.9.5"]
+                 [ring/ring-defaults "0.3.3"]
+                 [hiccup "1.0.5"]
+                 [yogthos/config "1.2.0"]
+                 [org.clojure/clojurescript "1.11.54"
+                   :scope "provided"]
+                 [metosin/reitit "0.5.18"]
+                 [pez/clerk "1.0.0"]
+                 [venantius/accountant "0.2.5"
+                   :exclusions [org.clojure/tools.reader]]
+                 [vvvvalvalval/datomock "0.2.2"]]
 
   :jvm-opts ["-Xmx1G"]
   
