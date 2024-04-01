@@ -2,34 +2,29 @@
   (:require
    [clojure-basics.todos.model :as model]
    [clojure-basics.db :as db]
-   [clojure.test :refer [deftest is run-tests testing use-fixtures]]
-   [clojure-basics.fixtures :as fixtures :refer [with-db create-todo read-todo update-todo delete-todo]]
-   ))
+   [clojure.test :refer [deftest is run-tests testing]]
+   [clojure-basics.fixtures :as fixtures])) ;; Remove unused namespace import
 
-(use-fixtures
-  :once
-  with-db)
+;; Remove use-fixtures block
 
 (deftest create-todo-test
   (testing "Create Todo"
     (let [todo-name "Test Todo"
-          todo-id (create-todo todo-name)
-          todo (read-todo todo-id)]
+          todo-id (fixtures/create-todo todo-name)
+          todo (fixtures/read-todo todo-id)]
       (is (= todo-name (first todo))))))
 
 (deftest update-todo-test
   (testing "Update Todo"
     (let [todo-name "Test Todo"
           new-name "Updated Todo"
-          todo-id (create-todo todo-name)]
-      (update-todo todo-id new-name)
-      (is (= new-name (-> (read-todo todo-id) first))))))
+          todo-id (fixtures/create-todo todo-name)]
+      (fixtures/update-todo todo-id new-name)
+      (is (= new-name (-> (fixtures/read-todo todo-id) first))))))
 
 (deftest delete-todo-test
   (testing "Delete Todo"
     (let [todo-name "Test Todo"
-          todo-id (create-todo todo-name)]
-      (delete-todo todo-id)
-      (is (nil? (read-todo todo-id))))))
-
-(run-tests)
+          todo-id (fixtures/create-todo todo-name)]
+      (fixtures/delete-todo todo-id)
+      (is (nil? (fixtures/read-todo todo-id))))))

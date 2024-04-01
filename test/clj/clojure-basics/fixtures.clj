@@ -12,14 +12,11 @@
     (reset! db/conn (dm/fork-conn conn))
     (db/load-schema)))
 
-(defn with-db [f]
-  (with-redefs [db/conn (atom nil)]
-    (start-db)
-    (f)))
+;; Removed with-db function and fixtures namespace import
 
 (defn create-todo [todo-name]
   (let [tx-result @(d/transact @db/conn [{:db/id (d/tempid :db.part/user)
-                                           :todo/name todo-name}])]
+                                          :todo/name todo-name}])]
     (first (:tempids tx-result))))
 
 (defn read-todo [todo-id]
