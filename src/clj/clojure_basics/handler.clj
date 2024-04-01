@@ -1,7 +1,6 @@
 (ns clojure-basics.handler
   (:require
    [reitit.ring :as reitit-ring]
-   [clojure-basics.middleware :refer [middleware]]
    [hiccup.page :refer [include-js include-css html5]]
    [config.core :refer [env]]))
 
@@ -44,4 +43,4 @@
    (reitit-ring/routes
     (reitit-ring/create-resource-handler {:path "/" :root "/public"})
     (reitit-ring/create-default-handler))
-   {:middleware middleware}))
+   ))

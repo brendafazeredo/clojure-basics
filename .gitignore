@@ -1,1 +1,5 @@
 target/*
+.calva/
+.clj-kondo/
+.lein-failures
+.lsp/
