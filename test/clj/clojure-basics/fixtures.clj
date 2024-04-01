@@ -9,7 +9,7 @@
 (defn start-db []
   (d/create-database conn-name)
   (let [conn (d/connect conn-name)]
-    (reset! db/conn  (dm/fork-conn conn))
+    (reset! db/conn (dm/fork-conn conn))
     (db/load-schema)))
 
 (defn with-db [f]

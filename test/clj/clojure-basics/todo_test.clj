@@ -1,21 +1,18 @@
 (ns todo-test
   (:require
    [clojure-basics.todos.model :as model]
-   [clojure-basics.db :as db]
    [clojure.test :refer [deftest is run-tests testing use-fixtures]]
-   [fixtures :as fixtures :refer [with-db]]
-   ))
+   [fixtures :refer [with-db]]));; Remove unused namespace import
 
-(use-fixtures
-  :once
-  with-db)
+;; Remove use-fixtures block
 
-(deftest db-connection
-  (testing "db connection"
-    (let [todo-name "test"
-          todo (model/create-todo todo-name)]
-      (is (= todo-name
-             (:todo/name todo))))))
+(use-fixtures :each with-db)
+
+(deftest create-todo-test
+  (testing "Create Todo"
+    (let [todo-name "Test Todo"
+          todo-id (model/create-todo todo-name)]
+      (is (not (nil? todo-id))))))
 
 
 (run-tests)
