@@ -14,6 +14,12 @@
           todo (fixtures/read-todo todo-id)]
       (is (= todo-name (first todo))))))
 
+(deftest read-todo-test
+  (testing "Read Todo"
+    (let [todo-name "Test Todo"
+          todo-id (fixtures/create-todo todo-name)]
+      (is (= todo-name (-> (fixtures/read-todo todo-id) first))))))
+
 (deftest update-todo-test
   (testing "Update Todo"
     (let [todo-name "Test Todo"
